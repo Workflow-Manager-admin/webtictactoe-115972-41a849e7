@@ -1,0 +1,248 @@
+/* CSS Variables for Theme Management */
+:root {
+  /* Light theme colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #282c34;
+  --text-secondary: #61dafb;
+  --border-color: #e9ecef;
+  --button-bg: #007bff;
+  --button-text: #ffffff;
+}
+
+[data-theme="dark"] {
+  /* Dark theme colors */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #282c34;
+  --text-primary: #ffffff;
+  --text-secondary: #61dafb;
+  --border-color: #404040;
+  --button-bg: #0056b3;
+  --button-text: #ffffff;
+}
+
+.App {
+  text-align: center;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: var(--bg-secondary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+  font-size: calc(10px + 2vmin);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease;
+  position: relative;
+  padding-top: 50px;
+}
+
+.App-link {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  opacity: 0.9;
+}
+
+.theme-toggle:active {
+  transform: translateY(0);
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- Tic Tac Toe Custom Styles --- */
+
+.ttt-title {
+  margin: 0.2em 0 0.05em 0;
+  font-size: 2.3rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: var(--button-bg);
+}
+.ttt-description {
+  font-size: 1rem;
+  margin: 0 0 0.8em 0;
+  color: #888;
+}
+
+.ttt-mode-select {
+  display: flex;
+  gap: 1em;
+  margin: 0.4em 0 1em 0;
+}
+.ttt-mode-btn {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 8px;
+  padding: 0.6em 1.6em;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(34, 49, 63, 0.07);
+  cursor: pointer;
+  opacity: 0.87;
+  transition: all 0.23s;
+  outline: none;
+}
+.ttt-mode-btn:hover,
+.ttt-mode-btn.selected {
+  background: #369cf7;
+  color: #fff;
+  opacity: 1;
+}
+
+.ttt-status {
+  font-size: 1.13rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0.8em 0 0.7em 0;
+  letter-spacing: 1.5px;
+  min-height: 2em;
+}
+
+.ttt-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;
+  margin: 0.2em 0 1.3em 0;
+  user-select: none;
+  border-radius: 16px;
+  width: 312px;
+  max-width: 98vw;
+  box-shadow: 0 1px 16px 2px rgba(52, 152, 219, 0.11);
+  background: var(--bg-primary);
+  padding: 10px 0;
+  transition: box-shadow 0.27s;
+}
+.ttt-board-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.ttt-square {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  color: var(--button-bg);
+  font-size: 2.3em;
+  font-family: inherit;
+  min-width: 70px;
+  min-height: 70px;
+  width: 70px;
+  height: 70px;
+  font-weight: 700;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  margin: 0.07em;
+  border-radius: 10px;
+  transition: border 0.22s, background 0.22s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ttt-square:disabled {
+  cursor: default;
+  color: #b2c7d0;
+  background: #f2f7fa;
+}
+.ttt-square.highlight {
+  background: #eaf6fd;
+  border: 2px solid #79caf8;
+  color: #e74c3c;
+}
+
+.ttt-controls {
+  margin: 1.1em 0 0.7em 0;
+}
+
+.ttt-restart-btn {
+  background: #2ecc71;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.6em 1.5em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(39, 174, 96, 0.07);
+  transition: background 0.2s, transform 0.15s;
+  opacity: 0.91;
+}
+.ttt-restart-btn:hover {
+  background: #27ae60;
+  opacity: 1;
+  transform: translateY(-1.5px) scale(1.025);
+}
+.ttt-footer {
+  margin-top: 3.4em;
+  font-size: 0.95em;
+  color: #bbb;
+  letter-spacing: 0.2em;
+  font-weight: 400;
+  text-align: center;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 450px) {
+  .ttt-title { font-size: 1.6rem;}
+  .ttt-description {font-size: 0.97rem;}
+  .ttt-board {width: 98vw;}
+  .ttt-square {min-width: 22vw; min-height: 22vw; width: 22vw; height: 22vw; font-size: 7vw;}
+  .ttt-controls {margin-bottom: 1.2em;}
+}
+
+@media (max-width: 768px) {
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+}
+
